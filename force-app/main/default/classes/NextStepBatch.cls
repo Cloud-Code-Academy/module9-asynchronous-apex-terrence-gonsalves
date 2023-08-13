@@ -1,37 +1,59 @@
+/*
+ * NextStepBatch Class Description:
+ * 
+ * The NextStepBatch class is designed to perform batch operations on Account and Opportunity objects in Salesforce.
+ * 
+ * Benefits of using Batch Apex:
+ * 
+ * 1. Large Data Volumes: Batch Apex is specifically tailored to handle large data volumes (LDV). It allows processing of records in batches, making it suitable for bulk processing, especially when dealing with millions of records.
+ * 2. Avoid Governor Limits: By splitting the transaction into smaller batches, you can perform operations on a large number of records without hitting governor limits.
+ * 3. Flexible Scheduling: Batch classes can be scheduled to run at specified intervals, providing flexibility in terms of when the processing occurs.
+ * 4. Stateful Execution: Supports stateful execution, so you can maintain state across batch transactions by implementing the `Database.Stateful` interface.
+ * 5. Built-in Retry Mechanism: If a batch fails, Salesforce provides built-in mechanisms to retry the batch.
+ * 6. Asynchronous Processing: Operations are executed asynchronously, ensuring that the user is not blocked while the batch is processing.
+ * 
+ * For a more detailed understanding and best practices, refer to the official Salesforce documentation: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_batch.htm
+ * 
+ * Note: This class contains placeholders and commented sections that need to be updated with actual logic for querying and updating records.
+ */
 public with sharing class NextStepBatch implements Database.Batchable<sObject>{
 
     public Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([SELECT Id, Name, Next_Step__c FROM Account]);
+        // Query for all accounts and return the query locator.
+        return null; // Update null with the query locator
     }
     
     public void execute(Database.BatchableContext BC, List<Account> scope){
-        String nextStep = 'Batching the next meetings together.';
-        Set<Id> accountIds = new Set<Id>();
-        for(Account a : scope){
-            a.Next_Step__c = nextStep;
-            accountIds.add(a.Id);
-        }
-        update scope;
+        final String BATCH_NEXT_STEP = 'Batching the next meetings together.';
+
+        // Update the Next Step field on each record in the batch scope.
+
+        // Loop through the scope account records
+
+            // Set the Next Step field to 'Batching the next meetings together.'
+
+        // Update the account records in this batch scope
         
-        List<Opportunity> opps = [SELECT Id, Name, NextStep FROM Opportunity WHERE AccountId IN :accountIds];
-        for(Opportunity o : opps){
-            o.NextStep = nextStep;
-        }
-        update opps;
+        // Query for all opportunities related to the accounts in this batch scope
+
+        // Loop through the opportunity records
+
+            // Set the Next Step field to 'Batching the next meetings together.'
+
+        // Update the opportunity records
+
     }
     
     public void finish(Database.BatchableContext BC){
-        List<User> users = [SELECT Id, Name, Email FROM User WHERE IsActive = true AND (NOT Email LIKE 'autoproc%')];
-        Set<String> emails = new Set<String>();
-        for (User u : users){
-            emails.add(u.Email);
-        }        
-        if (!emails.isEmpty()) {
-            sendEmail(emails);
-        }
+        final List<User> USERS = [SELECT Id, Name, Email FROM User WHERE IsActive = true AND (NOT Email LIKE 'autoproc%')]; // DO NOT CHANGE
+
+
+        // Get the email addresses of all active users
+
+            // Pass the set of active user emails to the sendEmailToActiveUsers method
     }
 
-    private void sendEmail(Set<String> emails){
+    private void sendEmailToActiveUsers(Set<String> emails){
         try {
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
             mail.setToAddresses(new List<String>(emails));

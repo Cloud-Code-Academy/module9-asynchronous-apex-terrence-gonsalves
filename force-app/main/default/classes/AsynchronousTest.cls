@@ -1,3 +1,28 @@
+/*
+ * AsynchronousTest Class Description:
+ * 
+ * This test class provides test methods for various asynchronous operations in Salesforce:
+ * 
+ * 1. nextStepFuture_testUpdateAllNextStep: 
+ *    - This test is designed for the NextStepFuture class. Students should insert their method from the NextStepFuture class within the specified area.
+ *    - This test creates test accounts and opportunities and checks if the NextStep fields are correctly updated.
+ * 
+ * 2. nextStepFuture_createDealAndUpdateRole: 
+ *    - Tests the creation of a big opportunity deal and updates the user role name.
+ * 
+ * 3. nextStepQueueable_testEnqueueJob: 
+ *    - Tests the enqueue operation and execution of the NextStepQueueable class.
+ *    - Validates if the NextStep fields in Account and Opportunity are set to null after execution.
+ * 
+ * 4. nextStepBatch_testUpdateAllNextStep: 
+ *    - Tests the batch class operation for updating NextStep fields in Account and Opportunity.
+ * 
+ * 5. nextStepSchedule_testExecute (currently commented out): 
+ *    - Will test the scheduled job once the NextStepSchedule class is implemented. This test checks if the NextStep fields are correctly updated in both Account and Opportunity objects after the scheduled job execution.
+ *    - Manually setup the scheduled job in Salesforce to run the NextStepSchedule class.
+ * 
+ * NOTE: To run the test for nextStepSchedule_testExecute, students will need to uncomment this test method after implementing the NextStepSchedule class.
+ */
 @IsTest
 public with sharing class AsynchronousTest {
 
@@ -123,6 +148,9 @@ public with sharing class AsynchronousTest {
         }
     }
 
+    /*  //UNCOMMENT TEST METHODS BELOW ONCE THE NextStepScheudle class is implemented
+        //No Changes should be required to the test methods/code below other than uncommenting them
+        //Mnually setup the scheduled job in Salesforce to run the NextStepSchedule class
     @IsTest
     static void nextStepSchedule_testExecute() {
         // Create test data
@@ -161,4 +189,5 @@ public with sharing class AsynchronousTest {
             System.assertEquals('Batching the next meetings together.', opp.NextStep, 'Opportunity NextStep field was not updated correctly.');
         }
     }
+    */
 }
