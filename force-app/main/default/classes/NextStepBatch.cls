@@ -47,12 +47,12 @@ public with sharing class NextStepBatch implements Database.Batchable<sObject>{
     public void finish(Database.BatchableContext BC){
         final List<User> USERS = [SELECT Id, Name, Email FROM User WHERE IsActive = true AND (NOT Email LIKE 'autoproc%')]; // DO NOT CHANGE
 
-
         // Get the email addresses of all active users
 
             // Pass the set of active user emails to the sendEmailToActiveUsers method
     }
 
+    // Helper method to send an email to all emails in the set
     private void sendEmailToActiveUsers(Set<String> emails){
         try {
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
