@@ -16,9 +16,9 @@ public with sharing class AsynchronousTest {
         }
         insert testOpps;
 
-        // Call the method to test
+        // Call the method to test between the startTest and stopTest methods
         Test.startTest();
-        NextStepFuture.updateAllNextStep();
+        //YOUR CODE HERE
         Test.stopTest();
 
         // Query the updated accounts and opportunities

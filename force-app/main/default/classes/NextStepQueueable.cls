@@ -1,36 +1,40 @@
-public with sharing class NextStepQueueable implements Queueable {
+public with sharing class NextStepQueueable {
 
+    // Member variable to store the accounts
     private Map<Id,Account> accounts;
 
     public NextStepQueueable(Map<Id,Account> accounts) {
-        this.accounts = accounts;
+        // Store the accounts in a member variable
     }
 
     public static void enqueueJob() {
-        Map<Id,Account> accountMap = new Map<Id, Account>([SELECT Id FROM Account WHERE Next_Step__c != NULL LIMIT 10]);
-        if (!accountMap.isEmpty()){
-            System.enqueueJob(new NextStepQueueable(accountMap));
-        }        
+        // Get 10 accounts with Next Step populated
+
+        // If there are any accounts, queue the job using System.enqueueJob
     }
 
     public void execute(QueueableContext context) { 
-        for (Account acc : accounts.values()) {
-            removeDescription(acc);
-        }
-        update accounts.values();
+        // Get the accounts from the member variable
 
-        List<Opportunity> opps = [SELECT Id, NextStep FROM Opportunity WHERE AccountId IN :accounts.keySet()];
-        for (Opportunity opp : opps) {
-            removeDescription(opp);
-        }
-        update opps;
+            // Remove the Next Step using the helper method
+
+        // Update the accounts
+
+        // Get the opportunities related to the accounts
+
+            // Remove the Next Step using the helper method
+
+        // Update the opportunities
     }
 
-
+    // Helper method to remove the Next Step
+    // Overloaded method to accept an opportunity
     private static void removeDescription(Opportunity opp) {
         opp.NextStep = null;
     }
 
+    // Helper method to remove the Next Step
+    // Overloaded method to accept an account
     private static void removeDescription(Account acc) {
         acc.Next_Step__c = null;
     }
