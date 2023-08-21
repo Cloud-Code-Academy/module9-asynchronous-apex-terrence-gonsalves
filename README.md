@@ -1,6 +1,6 @@
-# Developer Kickstart Week 9: Asynchronous Apex
+# Developer Kickstart Week: Asynchronous Apex
 
-This project is a cornerstone of the Developer Kickstart Week 8 curriculum at Cloud Code Academy. Tailored for emerging Salesforce developers, this module dives into the powerful world of Asynchronous Apex, highlighting the diverse strategies and tools like Future methods, Batch Apex, Queueable Apex, and Scheduled jobs.
+This project is a cornerstone of the Developer Kickstart curriculum at Cloud Code Academy. Tailored for emerging Salesforce developers, this module dives into the powerful world of Asynchronous Apex, highlighting the diverse strategies and tools like Future methods, Batch Apex, Queueable Apex, and Scheduled jobs.
 
 ## Goals of the Practice
 
