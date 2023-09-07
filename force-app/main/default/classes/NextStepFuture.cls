@@ -56,7 +56,7 @@ public with sharing class NextStepFuture {
             role = new UserRole();
             role.portalType = 'None'; 
             role.CaseAccessForAccountOwner = 'Edit'; 
-            role.OpportunityAccessForAccountOwner = 'Read';
+            // role.OpportunityAccessForAccountOwner = 'Read'; //This may need to be uncommented depending on your orgs Organization Wide Defaults(OWD) settings. If you are reciving FIELD_INTEGRITY_EXCEPTION, field integrity exception: unknown (Opportunity access levl below organization default): [unknown], uncomment this line.
         } else {
             role = roles[0];
         }
