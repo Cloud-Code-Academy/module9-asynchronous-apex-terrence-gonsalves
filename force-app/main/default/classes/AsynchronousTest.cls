@@ -148,9 +148,9 @@ public with sharing class AsynchronousTest {
         }
     }
 
-    /*  //UNCOMMENT TEST METHODS BELOW ONCE THE NextStepScheudle class is implemented
+    /*  //UNCOMMENT TEST METHODS BELOW ONCE THE NextStepSchedule class is implemented
         //No Changes should be required to the test methods/code below other than uncommenting them
-        //Mnually setup the scheduled job in Salesforce to run the NextStepSchedule class
+        //Manually setup the scheduled job in Salesforce to run the NextStepSchedule class
     @IsTest
     static void nextStepSchedule_testExecute() {
         // Create test data
