@@ -52,13 +52,13 @@ public with sharing class NextStepQueueable {
 
     // Helper method to remove the Next Step
     // Overloaded method to accept an opportunity
-    private static void removeDescription(Opportunity opp) {
+    private static void removeNextStep(Opportunity opp) {
         opp.NextStep = null;
     }
 
     // Helper method to remove the Next Step
     // Overloaded method to accept an account
-    private static void removeDescription(Account acc) {
+    private static void removeNextStep(Account acc) {
         acc.Next_Step__c = null;
     }
 }
