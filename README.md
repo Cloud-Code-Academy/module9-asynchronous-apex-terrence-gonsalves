@@ -1,10 +1,10 @@
-# Developer Kickstart Week: Asynchronous Apex
+# Developer Kickstart Module: Asynchronous Apex
 
-This project is a cornerstone of the Developer Kickstart curriculum at Cloud Code Academy. Tailored for emerging Salesforce developers, this module dives into the powerful world of Asynchronous Apex, highlighting the diverse strategies and tools like Future methods, Batch Apex, Queueable Apex, and Scheduled jobs.
+This repository is a cornerstone of the Developer Kickstart curriculum at Cloud Code Academy. Tailored for emerging Salesforce developers, this module dives into the powerful world of Asynchronous Apex, highlighting the diverse strategies and tools like Future methods, Batch Apex, Queueable Apex, and Scheduled jobs.
 
 ## Goals of the Practice
 
-During this project, you will enrich your understanding of:
+During this repository, you will enrich your understanding of:
 - The essential nature of Asynchronous Apex in facilitating long-running operations without hogging system resources.
 - Implementing Future methods to perform specific asynchronous actions, helping to evade governor limits.
 - Crafting and managing Batch Apex jobs, allowing bulk processing of records in an optimized manner.
@@ -19,14 +19,12 @@ By conquering Asynchronous Apex techniques, you'll unlock the ability to develop
 
 [Intermediate Setup Overview Video](https://vimeo.com/847130413/955b8bdbe2)
 
-To get started, you'll need a Salesforce Trailhead Playground. If you don't have one, you can create it for free from any Trailhead module.
-
-After you've set up your Trailhead Playground:
-
-1. Install Visual Studio Code from [here](https://code.visualstudio.com/download).
-2. Install Salesforce Extension Pack in Visual Studio Code. This can be done by searching 'Salesforce Extension Pack' in the Extensions view in VS Code and clicking Install.
-3. Authorize your Trailhead Playground in Visual Studio Code. Press `Ctrl + Shift + P` to open the command palette and type 'SFDX: Authorize an Org', then press Enter. Follow the steps in the browser to log in to your Playground, then return to VS Code.
-4. Deploy the Apex Class by right clicking on the `VariablesDatatypesOperators` and  `VariablesDatatypesOperatorsTest` file a using the option SFDX: Deploy Source to Org.
+## Getting Started Checklist
+1. Create/Configure a trailhead playground or developer org to do your work throughout this program.
+2. Install Visual Studio Code from [here](https://code.visualstudio.com/download).
+3. Install Salesforce Extension Pack in Visual Studio Code. This can be done by searching 'Salesforce Extension Pack' in the Extensions view in VS Code and clicking Install.
+4. Authorize your org in Visual Studio Code. Press `Ctrl + Shift + P` to open the command palette and type 'SFDX: Authorize an Org', then press Enter. Follow the steps in the browser to log in to your org, then return to VS Code.
+5. Make sure to save and deploy your changes into Salesforce from your local machine. This can be done through the command pallet or right clicking the file you want to deploy and using the option `SFDX: Deploy this source to org`
 
 ## Running the Test Classes
 
