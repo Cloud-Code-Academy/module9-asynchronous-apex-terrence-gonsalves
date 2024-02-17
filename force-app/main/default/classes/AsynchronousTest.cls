@@ -62,7 +62,7 @@ public with sharing class AsynchronousTest {
     }
 
     @IsTest
-    static void nextStepFuture_createDealAndUpdateRole() {        
+    static void nextStepFuture_testCreateDealAndUpdateRole() {        
         Test.startTest();
         NextStepFuture.createDealAndUpdateRole();
         Test.stopTest();

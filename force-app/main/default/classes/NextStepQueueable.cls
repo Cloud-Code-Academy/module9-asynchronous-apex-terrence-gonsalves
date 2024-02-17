@@ -1,8 +1,10 @@
 /*
  * NextStepQueueable Class Description:
  * 
- * The NextStepQueueable class showcases the usage of the Queueable interface in Salesforce to perform asynchronous operations.
- * 
+ * Implement the Queueable interface to process records asynchronously.
+ * This example processes up to 10 accounts at a time.
+ * It removes the Next Step from the accounts and related opportunities.
+ *  
  * Benefits of using Queueable methods:
  * 
  * 1. Chaining Jobs: Allows for the chaining of jobs, meaning you can add another job to the queue from a running job.

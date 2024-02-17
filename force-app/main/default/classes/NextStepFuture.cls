@@ -1,7 +1,8 @@
 /*
  * NextStepFuture Class Description:
  * 
- * The NextStepFuture class demonstrates the usage of future methods in Salesforce for performing asynchronous operations.
+ * Question 1: Create a future method that updates all account and opportunities next step to 'Meeting in the future'
+ * Question 2: Create a method that inserts a big deal opportunity and updates the user role name to 'CRO'
  * 
  * Benefits of using future methods:
  * 
@@ -19,6 +20,7 @@
 public with sharing class NextStepFuture {
 
     /* 
+     * Question 1
      * Update/Uncomment the template code to create a method
      * Create a future method that updates all account and opportunities next step to 'Meeting in the future'
      * Account Next Step field is a custom field
@@ -29,6 +31,12 @@ public with sharing class NextStepFuture {
     //  The body of the method
     //}
 
+    /*
+    * Question 2
+    * Update/Uncomment the template code to create a method
+    * Create a method that inserts a big deal opportunity and updates the user role name to 'CRO'
+    * Update the corresponding test class AsynchronousTest and test method nextStepFuture_testCreateDealAndUpdateRole to cover test this method
+    */
     //Mix DML Error happens when you try to perform DML operations on setup and non-setup objects in a single transaction.
     public static void createDealAndUpdateRole() {
         Opportunity bigDeal = new Opportunity();

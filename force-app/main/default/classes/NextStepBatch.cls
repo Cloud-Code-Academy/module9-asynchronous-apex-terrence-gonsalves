@@ -1,7 +1,9 @@
 /*
  * NextStepBatch Class Description:
  * 
- * The NextStepBatch class is designed to perform batch operations on Account and Opportunity objects in Salesforce.
+ * Implementing the 'Database.Batchable' interface allows you to define a job that can be broken into smaller batches.
+ * Update the Next Step field on all accounts and opportunities in the org to 'Batching the next meetings together.' 
+ * Send an email to all active users
  * 
  * Benefits of using Batch Apex:
  * 
