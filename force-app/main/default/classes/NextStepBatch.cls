@@ -20,12 +20,12 @@
  */
 public with sharing class NextStepBatch implements Database.Batchable<sObject>{
 
-    public Database.QueryLocator start(Database.BatchableContext BC){
+    public Database.QueryLocator start(Database.BatchableContext bc){
         // Query for all accounts and return the query locator.
         return null; // Update null with the query locator
     }
     
-    public void execute(Database.BatchableContext BC, List<Account> scope){
+    public void execute(Database.BatchableContext bc, List<Account> scope){
         final String BATCH_NEXT_STEP = 'Batching the next meetings together.';
 
         // Update the Next Step field on each record in the batch scope.
@@ -46,7 +46,7 @@ public with sharing class NextStepBatch implements Database.Batchable<sObject>{
 
     }
     
-    public void finish(Database.BatchableContext BC){
+    public void finish(Database.BatchableContext bc){
         final List<User> USERS = [SELECT Id, Name, Email FROM User WHERE IsActive = true AND (NOT Email LIKE 'autoproc%')]; // DO NOT CHANGE
 
         // Get the email addresses of all active users
