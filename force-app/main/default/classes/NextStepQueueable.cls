@@ -58,7 +58,11 @@ public with sharing class NextStepQueueable implements Queueable {
         }
 
         // Update the accounts
-        update accounts.values();
+        try {
+            update accounts.values();
+        } catch (DmlException e) {
+            System.debug('Error updating Aacounts: ' + e.getMessage());
+        }
 
         // Get the opportunities related to the accounts
         List<Opportunity> opps = [select Id, NextStep from Opportunity where AccountId in :accounts.keySet()];
@@ -71,7 +75,11 @@ public with sharing class NextStepQueueable implements Queueable {
         }
 
         // Update the opportunities
-        update opps;
+        try {   
+            update opps;
+        } catch (DmlException e) {
+            System.debug('Error updating Opportunities ' + e.getMessage());
+        }
 
         // Call the enqueueJob method to queue another job to process more records.
         Boolean maxDepth = AsyncInfo.getCurrentQueueableStackDepth() >= MAX_JOBS;
