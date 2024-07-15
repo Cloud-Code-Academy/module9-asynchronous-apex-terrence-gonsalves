@@ -94,7 +94,7 @@ public with sharing class AsynchronousTest {
 
         // Call the method to test
         Test.startTest();
-        //NextStepQueueable.enqueueJob();
+        NextStepQueueable.enqueueJob();
         Test.stopTest();
 
         // Query the updated accounts and opportunities
