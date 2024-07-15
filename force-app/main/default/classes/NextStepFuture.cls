@@ -27,9 +27,31 @@ public with sharing class NextStepFuture {
      * Opportunity Next Step field is a standard field
      * Update the corresponding test class AsynchronousTest and test method nextStepFuture_testUpdateAllNextStep to cover test this method
      */
-    //[public | private ] [static] data_type method_name (input parameters) {
-    //  The body of the method
-    //}
+    @future
+    public static void updateAllNextStep() {
+        List<Account> updateAccounts = [SELECT Id, Next_Step__c FROM Account];
+        List<Opportunity> updateOpportunities = [SELECT Id, NextStep FROM Opportunity];
+
+        for (Account acct : updateAccounts) {
+            acct.Next_Step__c = 'Meeting in the future';
+        }
+
+        try {
+            update updateAccounts;
+        } catch (DmlException e) {
+            System.debug('Account update error: ' + e.getMessage());
+        }
+
+        for (Opportunity opp : updateOpportunities) {
+            opp.NextStep = 'Meeting in the future';
+        }
+
+        try {
+            update updateOpportunities;
+        } catch (DmlException e) {
+            System.debug('Opportunities update error: ' + e.getMessage());
+        }
+    }
 
     /*
     * Question 2
@@ -42,6 +64,12 @@ public with sharing class NextStepFuture {
         Opportunity bigDeal = new Opportunity();
         insertBigDeal(bigDeal);
 
+        // moved the UserRole query out of this section to a @future method to avoid the Mixed DML error
+        updateUser();
+    }
+
+    @future
+    private static void updateUser() {
         UserRole[] roles = [SELECT Id, Name FROM UserRole WHERE Id = :UserInfo.getUserRoleId() OR Name = 'CRO' LIMIT 1];
         updateUserRoleName(roles);
     }
@@ -58,8 +86,9 @@ public with sharing class NextStepFuture {
 
 
     // Helper method to update role name
-    private static void updateUserRoleName(UserRole[] roles){
+    private static void updateUserRoleName(UserRole[] roles) {
         UserRole role;
+
         if (roles.isEmpty()) {
             role = new UserRole();
             role.portalType = 'None'; 
