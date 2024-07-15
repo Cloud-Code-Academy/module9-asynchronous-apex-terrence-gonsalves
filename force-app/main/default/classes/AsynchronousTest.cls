@@ -129,8 +129,8 @@ public with sharing class AsynchronousTest {
 
         // Call the batch class
         Test.startTest();
-        //NextStepBatch batchJob = new NextStepBatch();
-        //Id batchId = Database.executeBatch(batchJob);
+        NextStepBatch batchJob = new NextStepBatch();
+        Id batchId = Database.executeBatch(batchJob);
         Test.stopTest();
 
         // Query the updated accounts and opportunities
